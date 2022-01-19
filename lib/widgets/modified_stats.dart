@@ -42,7 +42,7 @@ class ModifiedStats extends StatefulWidget {
 class _ModifiedStatsState extends State<ModifiedStats> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * .5,
       child: Column(
         children: [
@@ -51,12 +51,18 @@ class _ModifiedStatsState extends State<ModifiedStats> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
+                  const Text("Power : "),
                   Text(
-                      "Power :  ${wp[widget.activeWeaponType]![widget.activeWeaponIndex].power.toString()} "),
+                    wp[widget.activeWeaponType]![widget.activeWeaponIndex]
+                        .power
+                        .toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text(
-                    "+ ${widget.muzzlePoweIncrease.toString()}",
+                    " +${widget.muzzlePoweIncrease.toString()}",
                     style: const TextStyle(
                       color: Color.fromRGBO(100, 220, 24, 1),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
@@ -68,12 +74,18 @@ class _ModifiedStatsState extends State<ModifiedStats> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
+                  const Text("Range : "),
                   Text(
-                      "Range :  ${wp[widget.activeWeaponType]![widget.activeWeaponIndex].range.toString()} "),
+                    wp[widget.activeWeaponType]![widget.activeWeaponIndex]
+                        .range
+                        .toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text(
-                    "+ ${widget.muzzleRangeIncrease.toInt() + widget.sightRangeIncrease.toInt() + widget.gripRangeIncrease}",
+                    " +${widget.muzzleRangeIncrease.toInt() + widget.sightRangeIncrease.toInt() + widget.gripRangeIncrease}",
                     style: const TextStyle(
                       color: Color.fromRGBO(100, 220, 24, 1),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
@@ -85,12 +97,18 @@ class _ModifiedStatsState extends State<ModifiedStats> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
+                  const Text("RateOfFire : "),
                   Text(
-                      "RateOfFire :  ${wp[widget.activeWeaponType]![widget.activeWeaponIndex].rateOfFire.toString()} "),
+                    wp[widget.activeWeaponType]![widget.activeWeaponIndex]
+                        .rateOfFire
+                        .toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text(
-                    "+ ${widget.magRateOfFireIncrease.toInt()}",
+                    " +${widget.magRateOfFireIncrease.toInt()}",
                     style: const TextStyle(
                       color: Color.fromRGBO(100, 220, 24, 1),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
@@ -102,12 +120,18 @@ class _ModifiedStatsState extends State<ModifiedStats> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
+                  const Text('Capacity : '),
                   Text(
-                      "Capacity :  ${wp[widget.activeWeaponType]![widget.activeWeaponIndex].capacity.toString()} "),
+                    wp[widget.activeWeaponType]![widget.activeWeaponIndex]
+                        .capacity
+                        .toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text(
-                    "+ ${widget.magCapacityIncrease.toInt()}",
-                    style: TextStyle(
-                      color: Colors.green[300],
+                    " +${widget.magCapacityIncrease.toInt()}",
+                    style: const TextStyle(
+                      color: Color.fromRGBO(100, 220, 24, 1),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
@@ -119,12 +143,18 @@ class _ModifiedStatsState extends State<ModifiedStats> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
+                  const Text('Stability : '),
                   Text(
-                      "Stability :  ${wp[widget.activeWeaponType]![widget.activeWeaponIndex].stability.toString()} "),
+                    wp[widget.activeWeaponType]![widget.activeWeaponIndex]
+                        .stability
+                        .toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text(
-                    "+ ${widget.muzzleStabilityIncrease.toInt() + widget.stockStabilityIncrease.toInt() + widget.gripStabilityIncrease}",
-                    style: TextStyle(
-                      color: Colors.green[300],
+                    " +${widget.muzzleStabilityIncrease.toInt() + widget.stockStabilityIncrease.toInt() + widget.gripStabilityIncrease}",
+                    style: const TextStyle(
+                      color: Color.fromRGBO(100, 220, 24, 1),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],

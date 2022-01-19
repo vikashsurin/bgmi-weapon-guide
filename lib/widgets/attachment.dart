@@ -119,6 +119,7 @@ class _AttachmentState extends State<Attachment> {
                   child: Ink(
                     padding: const EdgeInsets.all(2.0),
                     decoration: BoxDecoration(
+                      color: Colors.amber,
                       border: eq(activeMuzzle,
                                       [widget.activeAttachmentType, i]) &&
                                   muzzleStatus ||
