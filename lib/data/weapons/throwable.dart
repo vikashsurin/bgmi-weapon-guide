@@ -1,4 +1,4 @@
-import '../models/weapon.dart';
+import '../../models/weapon.dart';
 
 final List<Throwable> throwable = [
   const Throwable(

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import '../models/weapon.dart';
-
-//weapon data
+import './attachment_list.dart';
 
 class ActiveWeapon extends StatefulWidget {
-  final String activeWeapon;
-  final String weaponType;
+  final String activeWeaponType;
+  final String weaponTypeHeading;
 
   const ActiveWeapon({
-    required this.activeWeapon,
-    required this.weaponType,
+    required this.activeWeaponType,
+    required this.weaponTypeHeading,
     Key? key,
   }) : super(key: key);
   @override
@@ -22,7 +21,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.weaponType),
+        title: Text(widget.weaponTypeHeading),
       ),
       body: Container(
         color: Colors.grey,
@@ -36,23 +35,19 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
             ),
             horizontalWeaponListScroll(),
             weaponDetail(),
+            Container(
+              alignment: Alignment.center,
+              child: AttachmentList(
+                  activeWeaponType: widget.activeWeaponType,
+                  activeWeaponIndex: activeWeaponIndex,
+                  activeWeapon:
+                      wp[widget.activeWeaponType]![activeWeaponIndex].key),
+            ),
           ],
         ),
       ),
     );
   }
-
-  //  ! deprecated
-  // Widget backBtn() {
-  //   return const Positioned(
-  //     left: 10.0,
-  //     child: Icon(
-  //       Icons.arrow_back,
-  //       color: Colors.white,
-  //       size: 50.0,
-  //     ),
-  //   );
-  // }
 
   Widget weaponImage() {
     return Positioned(
@@ -71,7 +66,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
         height: MediaQuery.of(context).size.height * .5,
         width: MediaQuery.of(context).size.width * 1.0,
         child: Image.asset(
-          'assets/images/${wp[widget.activeWeapon]![activeWeaponIndex].key}.png',
+          'assets/images/${wp[widget.activeWeaponType]![activeWeaponIndex].key}.png',
           errorBuilder:
               (BuildContext context, Object error, StackTrace? stackTrace) {
             return Image.asset('assets/images/loading.png');
@@ -88,7 +83,6 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
       left: 10,
       top: 60,
       child: SizedBox(
-        // height: 300,
         height: MediaQuery.of(context).size.height * 1,
         width: 100,
         child: DefaultTextStyle(
@@ -103,7 +97,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      wp[widget.activeWeapon]![activeWeaponIndex]
+                      wp[widget.activeWeaponType]![activeWeaponIndex]
                           .ammo
                           .toString(),
                       style: const TextStyle(fontWeight: FontWeight.bold),
@@ -119,7 +113,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      wp[widget.activeWeapon]![activeWeaponIndex]
+                      wp[widget.activeWeaponType]![activeWeaponIndex]
                           .power
                           .toString(),
                       style: const TextStyle(fontWeight: FontWeight.bold),
@@ -135,7 +129,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      wp[widget.activeWeapon]![activeWeaponIndex]
+                      wp[widget.activeWeaponType]![activeWeaponIndex]
                           .rateOfFire
                           .toString(),
                       style: const TextStyle(fontWeight: FontWeight.bold),
@@ -151,7 +145,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      wp[widget.activeWeapon]![activeWeaponIndex]
+                      wp[widget.activeWeaponType]![activeWeaponIndex]
                           .range
                           .toString(),
                       style: const TextStyle(fontWeight: FontWeight.bold),
@@ -167,7 +161,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      wp[widget.activeWeapon]![activeWeaponIndex]
+                      wp[widget.activeWeaponType]![activeWeaponIndex]
                           .stability
                           .toString(),
                       style: const TextStyle(fontWeight: FontWeight.bold),
@@ -212,7 +206,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              wp[widget.activeWeapon]![index].name,
+                              wp[widget.activeWeaponType]![index].name,
                               textAlign: TextAlign.center,
                               style: activeWeaponIndex == index
                                   ? const TextStyle(
@@ -235,7 +229,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
               width: 10.0,
             );
           },
-          itemCount: wp[widget.activeWeapon]!.length),
+          itemCount: wp[widget.activeWeaponType]!.length),
     );
   }
 
@@ -248,7 +242,7 @@ class _ActiveWeaponState extends State<ActiveWeapon> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              wp[widget.activeWeapon]![activeWeaponIndex].name,
+              wp[widget.activeWeaponType]![activeWeaponIndex].name,
               style: const TextStyle(
                 fontSize: 40.0,
                 color: Colors.white,

@@ -1,12 +1,12 @@
-import '../data/assault_rifle.dart';
-import '../data/smg.dart';
-import '../data/shotgun.dart';
-import '../data/sniper.dart';
-import '../data/pistol.dart';
-import '../data/lmg.dart';
-import '../data/dmr.dart';
-import '../data/melee.dart';
-import '../data/throwable.dart';
+import '../data/weapons/assault_rifle.dart';
+import '../data/weapons/smg.dart';
+import '../data/weapons/shotgun.dart';
+import '../data/weapons/sniper.dart';
+import '../data/weapons/pistol.dart';
+import '../data/weapons/lmg.dart';
+import '../data/weapons/dmr.dart';
+import '../data/weapons/melee.dart';
+import '../data/weapons/throwable.dart';
 
 class Weapon {
   final String key;

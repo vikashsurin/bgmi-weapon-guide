@@ -1,57 +1,60 @@
-import 'package:bgmi_weapon/widgets/throwable_weapon.dart';
 import 'package:flutter/material.dart';
+import 'package:bgmi_weapon/widgets/throwable_weapon.dart';
 import 'widgets/active_weapon.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 final weapons = [
   Wt(
       name: 'Assault Rifle',
       route: '/ar',
-      builder: (context) =>
-          const ActiveWeapon(activeWeapon: 'ar', weaponType: 'Assault Rifle')),
+      builder: (context) => const ActiveWeapon(
+          activeWeaponType: 'ar', weaponTypeHeading: 'Assault Rifle')),
   Wt(
       name: 'Smg',
       route: '/smg',
       builder: (context) => const ActiveWeapon(
-          activeWeapon: 'smg', weaponType: 'Short Machine Gun')),
+          activeWeaponType: 'smg', weaponTypeHeading: 'Short Machine Gun')),
   Wt(
       name: 'Shotgun',
       route: '/shotgun',
-      builder: (context) =>
-          const ActiveWeapon(activeWeapon: 'shotgun', weaponType: 'Shotgun')),
+      builder: (context) => const ActiveWeapon(
+          activeWeaponType: 'shotgun', weaponTypeHeading: 'Shotgun')),
   Wt(
       name: 'Sniper Rifle',
       route: '/sniper',
       builder: (context) => const ActiveWeapon(
-          activeWeapon: 'sniper', weaponType: 'Sniper Rifle')),
+          activeWeaponType: 'sniper', weaponTypeHeading: 'Sniper Rifle')),
   Wt(
       name: 'Dmr',
       route: '/dmr',
       builder: (context) => const ActiveWeapon(
-          activeWeapon: 'dmr', weaponType: 'Designated Marksman Rifle')),
+          activeWeaponType: 'dmr',
+          weaponTypeHeading: 'Designated Marksman Rifle')),
   Wt(
       name: 'Lmg',
       route: '/lmg',
       builder: (context) => const ActiveWeapon(
-          activeWeapon: 'lmg', weaponType: 'Light Machine Gun')),
+          activeWeaponType: 'lmg', weaponTypeHeading: 'Light Machine Gun')),
   Wt(
       name: 'Pistol',
       route: '/pistol',
-      builder: (context) =>
-          const ActiveWeapon(activeWeapon: 'pistol', weaponType: 'Pistol')),
+      builder: (context) => const ActiveWeapon(
+          activeWeaponType: 'pistol', weaponTypeHeading: 'Pistol')),
   Wt(
       name: 'Melee',
       route: '/melee',
-      builder: (context) =>
-          const ActiveWeapon(activeWeapon: 'melee', weaponType: 'Melee')),
+      builder: (context) => const ActiveWeapon(
+          activeWeaponType: 'melee', weaponTypeHeading: 'Melee')),
   Wt(
       name: 'Throwable',
       route: '/throwable',
       builder: (context) => const ThrowableWeapon(
-          activeThrow: 'throwable', weaponType: 'Throwable')),
+          activeThrow: 'throwable', weaponTypeHeading: 'Throwable')),
 ];
 
 /// MYAPP...

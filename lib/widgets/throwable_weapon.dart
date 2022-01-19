@@ -3,10 +3,10 @@ import "package:flutter/material.dart";
 
 class ThrowableWeapon extends StatefulWidget {
   final String activeThrow;
-  final String weaponType;
+  final String weaponTypeHeading;
 
   const ThrowableWeapon(
-      {required this.activeThrow, required this.weaponType, Key? key})
+      {required this.activeThrow, required this.weaponTypeHeading, Key? key})
       : super(key: key);
 
   @override
@@ -19,7 +19,7 @@ class _ThrowableWeaponState extends State<ThrowableWeapon> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.weaponType),
+        title: Text(widget.weaponTypeHeading),
       ),
       body: Container(
         color: Colors.grey,
@@ -37,7 +37,6 @@ class _ThrowableWeaponState extends State<ThrowableWeapon> {
         ),
       ),
     );
-    ;
   }
 
   Widget weaponImage() {
